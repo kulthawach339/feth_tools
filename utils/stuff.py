@@ -10,3 +10,10 @@ def get_entry_string_index(tuples):
     elif tuples[1] != '':
         return 1
     return 0
+
+
+def escape_strings(strings):
+    for i in range(len(strings)):
+        strings[i] = strings[i].replace("\n", "<<NL>>")
+        strings[i] = strings[i].replace("\u001b", "<<ESCAPE>>")
+    return strings

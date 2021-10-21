@@ -1,5 +1,6 @@
 from sys import argv
 from utils.binary import *
+from utils.stuff import escape_strings
 import codecs
 import json
 
@@ -74,7 +75,7 @@ def main(args):
                 strings.append(read_utf8_string_nt(f))
             strings.append("======")
     with codecs.open(out_file_path, "w", "utf-8") as f:
-        f.write(json.dumps(strings, ensure_ascii=False, indent=2))
+        f.write(json.dumps(escape_strings(strings), ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':
